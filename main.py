@@ -1,8 +1,9 @@
-import os
+from wisdom import *
 from flask import *
 from random import *
 from facts import *
 from reasons import *
+import os
 import json
 
 app = Flask(__name__)
@@ -65,6 +66,14 @@ def rolldice():
     else:
         json_dump = json.dumps(result)
         return "{data: {roll: " + json_dump + "}}"
+
+
+@app.route('/dog_zen', methods=['GET'])
+def give_quote():
+    quote = wisdom[randint(0, 34)]
+    json_dump = json.dumps(quote)
+
+    return "{data: Parker Says:{" + json_dump + "}}"
 
 
 if __name__ == '__main__':
