@@ -17,6 +17,7 @@ You need:
 | `/reasons`      | Get reasons to get a dog         |
 | `/fun/coinflip` | Gets a random `heads` or `tails` |
 | `/fun/diceroll` | Get a dice roll result           |
+| `/dog_zen`      | Parker the dog gives you wisdom  |
 
 For route `/`:
 ```
@@ -61,6 +62,18 @@ import urllib.request, json
 # Get data from the api route "/fun/rolldice"
 def get_dice():
     url = "https://api-dogfacts.herokuapp.com/fun/rolldice"
+    request = urllib.request.Request(url)
+    response = urllib.request.urlopen(request)
+    data = response.read().decode()
+    return data
+```
+For route `/dog_zen`:
+```
+import urllib.request, json
+
+# Get data from the api route "/dog_zen"
+def get_quote():
+    url = "https://api-dogfacts.herokuapp.com/dog_zen"
     request = urllib.request.Request(url)
     response = urllib.request.urlopen(request)
     data = response.read().decode()
