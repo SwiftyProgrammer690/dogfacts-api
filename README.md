@@ -11,14 +11,14 @@ You need:
 
 # Usage
 
-| Route           | What it does                     |
-|-----------------|----------------------------------|
-| `/`             | Gets dog facts                   |
-| `/reasons`      | Get reasons to get a dog         |
-| `/fun/coinflip` | Gets a random `heads` or `tails` |
-| `/fun/diceroll` | Get a dice roll result           |
-| `/dog_zen`      | Parker the dog gives you wisdom  |
-| `/emoji`        | IN BETA TESTING                  |
+| Route           | What it does                                          |
+|-----------------|-------------------------------------------------------|
+| `/`             | Gets dog facts                                        |
+| `/reasons`      | Get reasons to get a dog                              |
+| `/fun/coinflip` | Gets a random `heads` or `tails`                      |
+| `/fun/diceroll` | Get a dice roll result                                |
+| `/dog_zen`      | Parker the dog gives you wisdom                       |
+| `/emoji`        | Gets random dog emoji [**SEARCH WILL BE ADDED SOON**] |
 
 For route `/`:
 ```
@@ -80,7 +80,18 @@ def get_quote():
     data = response.read().decode()
     return data
 ```
-Route `/emoji` is being tested
+For Route `/emoji`:
+```
+import urllib.request, json
+
+# Get data from the api route "/emoji"
+def get_emoji():
+    url = "https://api-dogfacts.herokuapp.com/emoji"
+    request = urllib.request.Request(url)
+    response = urllib.request.urlopen(request)
+    data = response.read().decode()
+    return data
+```
 
 New features going to be added soon!
 
