@@ -76,5 +76,14 @@ def give_quote():
     return "{data: Parker Says:{" + json_dump + "}}"
 
 
+# Testing
+@app.route('/emoji', methods=['GET'])
+def get_emoji():
+    emojis = ["🐕", "🐶", "🐩"]
+    result = emojis[randint(0, 2)]
+
+    return "{data: " + result + "}"
+
+
 if __name__ == '__main__':
     app.run(port=7777)

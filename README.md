@@ -18,6 +18,7 @@ You need:
 | `/fun/coinflip` | Gets a random `heads` or `tails` |
 | `/fun/diceroll` | Get a dice roll result           |
 | `/dog_zen`      | Parker the dog gives you wisdom  |
+| `/emoji`        | IN BETA TESTING                  |
 
 For route `/`:
 ```
@@ -79,6 +80,7 @@ def get_quote():
     data = response.read().decode()
     return data
 ```
+Route `/emoji` is being tested
 
 New features going to be added soon!
 
