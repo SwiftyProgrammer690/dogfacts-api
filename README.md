@@ -11,14 +11,15 @@ You need:
 
 # Usage
 
-| Route           | What it does                                          |
-|-----------------|-------------------------------------------------------|
-| `/`             | Gets dog facts                                        |
-| `/reasons`      | Get reasons to get a dog                              |
-| `/fun/coinflip` | Gets a random `heads` or `tails`                      |
-| `/fun/diceroll` | Get a dice roll result                                |
-| `/dog_zen`      | Parker the dog gives you wisdom                       |
-| `/emoji`        | Gets random dog emoji [**SEARCH WILL BE ADDED SOON**] |
+| Route                               | What it does                                                                                                                   |
+|-------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
+| `/`                                 | Gets dog facts                                                                                                                 |
+| `/reasons`                          | Get reasons to get a dog                                                                                                       |
+| `/fun/coinflip`                     | Gets a random `heads` or `tails`                                                                                               |
+| `/fun/diceroll`                     | Get a dice roll result                                                                                                         |
+| `/dog_zen`                          | Parker the dog gives you wisdom                                                                                                |
+| `/emoji`                            | Gets random dog emoji *TO SEARCH, LOOK AT ROUTE* `/search_emoji`                                                               |
+| `/search_emoji/?emoji=<EMOJI_NAME>` | Searches for specific emoji. Emoji names = `Dog`, `DogFace`, and `PoodleDog`. Will return 404 error if invalid input received! |
 
 For route `/`:
 ```
@@ -92,8 +93,24 @@ def get_emoji():
     data = response.read().decode()
     return data
 ```
+For Route `/search_emoji/`:
+```
+import urllib.request, json
+
+# Get data from the api route "/search_emoji"
+def get_emoji(EMOJI_NAME):
+    url = "https://api-dogfacts.herokuapp.com/search_emoji/?emoji=" + EMOJI_NAME
+    request = urllib.request.Request(url)
+    response = urllib.request.urlopen(request)
+    data = response.read().decode()
+    return data
+```
 
 New features going to be added soon!
+
+# Help
+
+If you are facing any difficulties with this api, please feel free to open an issue on GitHub!
 
 # Inspiration
 

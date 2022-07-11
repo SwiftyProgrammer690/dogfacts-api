@@ -84,5 +84,18 @@ def get_emoji():
     return "{data: " + result + "}"
 
 
+@app.route('/search_emoji/', methods=['GET'])
+def request_emoji():
+    user_query = str(request.args.get('emoji'))
+    if user_query == 'DogFace':
+        return "🐶"
+    elif user_query == 'Dog':
+        return "🐕"
+    elif user_query == 'PoodleDog':
+        return "🐩"
+    else:
+        return "<h1>Error 404</h1><br>" + "Emoji Not Found ¯\_(ツ)_/¯"
+
+
 if __name__ == '__main__':
     app.run(port=7777)
