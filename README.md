@@ -1,5 +1,8 @@
 # DogFacts-API
 
+![image](https://user-images.githubusercontent.com/68472469/178375433-a5554468-a052-4846-b0eb-4dc7d81f5ce4.png)
+
+
 DogFacts-API is an API that gives you facts about dogs that you can use in your project! Maintained by @SwiftyProgrammer on GitHub + pycharm! Open-Source contributions welcome!
 
 # What you need
