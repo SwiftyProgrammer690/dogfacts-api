@@ -15,6 +15,23 @@ def favicon():
 
 
 @app.route('/', methods=['GET'])
+def list_pages():
+    route_json = [
+        "Routes:",
+        "Route 1: /",
+        "Route 2: /home",
+        "Route 3: /reasons",
+        "Route 4: /fun/coinflip",
+        "Route 5: /fun/rolldice",
+        "Route 6: /dog_zen",
+        "Route 7: /emoji",
+        "Route 8: /search_emoji/?emoji=<EMOJI NAME HERE>",
+    ]
+    json_dump = json.dumps(route_json)
+    return "data: {" + json_dump + "}"
+
+
+@app.route('/home', methods=['GET'])
 def facts():
     fact = dog_facts[randint(0, 100)]
     json_dump = json.dumps(fact)
@@ -98,4 +115,4 @@ def request_emoji():
 
 
 if __name__ == '__main__':
-    app.run(port=7777)
+    app.run(port=8888)
